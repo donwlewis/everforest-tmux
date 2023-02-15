@@ -28,15 +28,15 @@ main() {
   }
 
   local theme
-  theme="$(get-tmux-option "@catppuccin_flavour" "mocha")"
+  theme="$(get-tmux-option "@everforest_flavour" "dark-medium")"
 
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
   sed -E 's/^(.+=)/local \1/' \
-      > "${PLUGIN_DIR}/catppuccin-selected-theme.tmuxtheme" \
-      < "${PLUGIN_DIR}/catppuccin-${theme}.tmuxtheme"
+      > "${PLUGIN_DIR}/everforest-selected-theme.tmuxtheme" \
+      < "${PLUGIN_DIR}/everforest-${theme}.tmuxtheme"
 
-  source "${PLUGIN_DIR}/catppuccin-selected-theme.tmuxtheme"
+  source "${PLUGIN_DIR}/everforest-selected-theme.tmuxtheme"
 
   # status
   set status "on"
@@ -60,8 +60,8 @@ main() {
 
   # --------=== Statusline
 
-  # NOTE: Checking for the value of @catppuccin_window_tabs_enabled
-  wt_enabled="$(get-tmux-option "@catppuccin_window_tabs_enabled" "off")"
+  # NOTE: Checking for the value of @everforest_window_tabs_enabled
+  wt_enabled="$(get-tmux-option "@everforest_window_tabs_enabled" "off")"
   readonly wt_enabled
 
   # These variables are the defaults so that the setw and set calls are easier to parse.
@@ -83,7 +83,7 @@ main() {
   local window_status_format=$show_directory_in_window_status
   local window_status_current_format=$show_directory_in_window_status_current
 
-  # NOTE: With the @catppuccin_window_tabs_enabled set to on, we're going to
+  # NOTE: With the @everforest_window_tabs_enabled set to on, we're going to
   # update the right_column1 and the window_status_* variables.
   if [[ "${wt_enabled}" == "on" ]]
   then

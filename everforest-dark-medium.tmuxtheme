@@ -1,0 +1,49 @@
+# NOTE: you can use vars with $<var> and ${<var>} as long as the str is double quoted: ""
+# WARNING: hex colors can't contain capital letters
+# local color_palette = {
+# 	rosewater = "#F5E0DC",
+# 	flamingo = "#F2CDCD",
+# 	pink = "#F5C2E7",
+# 	mauve = "#CBA6F7",
+# 	red = "#F38BA8",
+# 	maroon = "#EBA0AC",
+# 	peach = "#FAB387",
+# 	yellow = "#F9E2AF",
+# 	green = "#A6E3A1",
+# 	teal = "#94E2D5",
+# 	sky = "#89DCEB",
+# 	sapphire = "#74C7EC",
+# 	blue = "#89B4FA",
+# 	lavender = "#B4BEFE",
+#
+# 	text = "#CDD6F4",
+# 	subtext1 = "#BAC2DE",
+# 	subtext0 = "#A6ADC8",
+# 	overlay2 = "#9399B2",
+# 	overlay1 = "#7F849C",
+# 	overlay0 = "#6C7086",
+# 	surface2 = "#585B70",
+# 	surface1 = "#45475A",
+# 	surface0 = "#313244",
+#
+# 	base = "#1E1E2E",
+# 	mantle = "#181825",
+# 	crust = "#11111B",
+# }
+#
+# return color_palette
+
+# --> Everforest Dark Medium
+thm_bg="#2d353b" # done
+thm_fg="#d3c6aa" # done
+thm_cyan="#83c092" # done
+thm_black="#232a2e" # done bg-dim
+thm_gray="#7a8478" # done gray-0
+thm_magenta="#d699b6" # done, same as pink for now
+thm_pink="#d699b6" # done
+thm_red="#e67e80" # done
+thm_green="#a7c080" # done
+thm_yellow="#dbbc7f" # done
+thm_blue="#7fbbb3" # done
+thm_orange="#e69875" # done
+thm_black4="#475258" # done bg-3
