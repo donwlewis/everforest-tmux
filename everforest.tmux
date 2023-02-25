@@ -28,7 +28,7 @@ main() {
   }
 
   local theme
-  theme="$(get-tmux-option "@everforest_flavour" "dark-medium")"
+  theme="$(get-tmux-option "@everforest_theme" "dark-medium")"
 
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
