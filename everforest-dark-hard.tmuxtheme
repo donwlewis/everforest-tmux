@@ -2,19 +2,19 @@
 # NOTE: you can use vars with $<var> and ${<var>} as long as the str is double quoted: ""
 # WARNING: hex colors can't contain capital letters
 
-# --> Everforest Dark Medium
-thm_bg_dim="#232a2e"
-thm_bg0="#2d353b"
-thm_bg1="#343f44"
-thm_bg2="#3d484d"
-thm_bg3="#475258"
-thm_bg4="#4f585e"
-thm_bg5="#56635f"
-thm_bg_visual="#543a48"
-thm_bg_red="#514045"
-thm_bg_green="#425047"
-thm_bg_blue="#3a515d"
-thm_bg_yellow="#4d4c43"
+# --> Everforest Dark Hard
+thm_bg_dim="#1e2326"
+thm_bg0="#272e33"
+thm_bg1="#2e383c"
+thm_bg2="#374145"
+thm_bg3="#414b50"
+thm_bg4="#495156"
+thm_bg5="#4f5b58"
+thm_bg_visual="#4c3743"
+thm_bg_red="#493b40"
+thm_bg_green="#3c4841"
+thm_bg_blue="#384b55"
+thm_bg_yellow="#45443c"
 
 thm_fg="#d3c6aa"
 thm_red="#e67e80"
