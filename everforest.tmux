@@ -60,41 +60,16 @@ main() {
 
   # --------=== Statusline
 
-  # NOTE: Checking for the value of @everforest_window_tabs_enabled
-  wt_enabled="$(get-tmux-option "@everforest_window_tabs_enabled" "off")"
-  readonly wt_enabled
-
   # These variables are the defaults so that the setw and set calls are easier to parse.
-  readonly show_directory="#[fg=$thm_purple,bg=$thm_bg0,nobold,nounderscore,noitalics]#[fg=$thm_bg0,bg=$thm_purple,nobold,nounderscore,noitalics]  #[fg=$thm_fg,bg=$thm_bg2] #{b:pane_current_path} #{?client_prefix,#[fg=$thm_red]"
-  readonly show_window="#[fg=$thm_purple,bg=$thm_bg0,nobold,nounderscore,noitalics]#[fg=$thm_bg0,bg=$thm_purple,nobold,nounderscore,noitalics] #[fg=$thm_fg,bg=$thm_bg2] #W #{?client_prefix,#[fg=$thm_red]"
-  readonly show_session="#[fg=$thm_green]}#[bg=$thm_bg2]#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg0] #[fg=$thm_fg,bg=$thm_bg2] #S "
-  readonly show_directory_in_window_status="#[fg=$thm_bg0,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_bg2] #{b:pane_current_path} "
-  readonly show_directory_in_window_status_current="#[fg=$thm_bg0,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg0] #{b:pane_current_path} "
-  readonly show_window_in_window_status="#[fg=$thm_fg,bg=$thm_bg0] #W #[fg=$thm_bg0,bg=$thm_blue] #I#[fg=$thm_blue,bg=$thm_bg0]#[fg=$thm_fg,bg=$thm_bg0,nobold,nounderscore,noitalics] "
-  readonly show_window_in_window_status_current="#[fg=$thm_fg,bg=$thm_bg2] #W #[fg=$thm_bg0,bg=$thm_orange] #I#[fg=$thm_orange,bg=$thm_bg0]#[fg=$thm_fg,bg=$thm_bg0,nobold,nounderscore,noitalics] "
-
-  # Right column 1 by default shows the Window name.
-  local right_column1=$show_window
-
-  # Right column 2 by default shows the current Session name.
-  local right_column2=$show_session
-
-  # Window status by default shows the current directory basename.
-  local window_status_format=$show_directory_in_window_status
-  local window_status_current_format=$show_directory_in_window_status_current
-
-  # NOTE: With the @everforest_window_tabs_enabled set to on, we're going to
-  # update the right_column1 and the window_status_* variables.
-  if [[ "${wt_enabled}" == "on" ]]
-  then
-    right_column1=$show_directory
-    window_status_format=$show_window_in_window_status
-    window_status_current_format=$show_window_in_window_status_current
-  fi
+  readonly show_directory="#[fg=$thm_orange,bg=$thm_bg0,bold]   #{b:pane_current_path} "
+  readonly show_window="#[fg=$thm_yellow,bg=$thm_bg0,bold]   #W "
+  readonly show_time="#[fg=$thm_aqua,bg=$thm_bg0,bold]   %H:%M "
+  readonly window_status_format="#[fg=$thm_red,bg=$thm_bg0,bold] #W #I  "
+  readonly window_status_current_format="#[fg=$thm_blue,bg=$thm_bg0,bold] #W #I  "
 
   set status-left ""
 
-  set status-right "${right_column1},${right_column2}"
+  set status-right "${show_directory}${show_window}${show_time}"
 
   setw window-status-format "${window_status_format}"
   setw window-status-current-format "${window_status_current_format}"
