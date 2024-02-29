@@ -15,6 +15,15 @@ main() {
     fi
   }
 
+  get-sync-status() {
+    value="$(tmux show-option -wqv synchronize-panes)"
+    if [ -n "$value" ]; then
+      echo "$value"
+    else
+      echo "off"
+    fi
+  }
+
   set() {
     local option=$1
     local value=$2
@@ -59,13 +68,25 @@ main() {
   setw window-status-style "fg=${thm_fg},bg=${thm_bg0},none"
 
   # --------=== Statusline
+  sync_enabled="$(get-sync-status)"
+  readonly sync_enabled
 
   # These variables are the defaults so that the setw and set calls are easier to parse.
   readonly show_directory="#[fg=$thm_orange,bg=$thm_bg0,bold]   #{b:pane_current_path} "
   readonly show_window="#[fg=$thm_yellow,bg=$thm_bg0,bold]   #W "
-  readonly show_time="#[fg=$thm_aqua,bg=$thm_bg0,bold]   %H:%M "
-  readonly window_status_format="#[fg=$thm_red,bg=$thm_bg0,bold] #W #I  "
-  readonly window_status_current_format="#[fg=$thm_blue,bg=$thm_bg0,bold] #W #I  "
+  readonly show_time="#[fg=$thm_aqua,bg=$thm_bg0,bold]   %H:%M Right Here:${sync_enabled}"
+  readonly window_default_status_format="#[fg=$thm_red,bg=$thm_bg0,bold] #W #I  "
+  readonly window_default_status_current_format="#[fg=$thm_blue,bg=$thm_bg0,bold] #W #I  "
+  readonly window_sync_status_format="#[fg=$thm_bg0,bg=$thm_red,bold] #W #I#[fg=$thm_red,bg=$thm_bg0,bold] "
+  readonly window_sync_status_current_format="#[fg=$thm_bg0,bg=$thm_blue,bold] #W #I #[fg=$thm_blue,bg=$thm_bg0,bold] "
+
+  if [[ "${sync_enabled}" == "on" ]]; then
+    window_status_format=${window_sync_status_format}
+    window_status_current_format=${window_sync_status_current_format}
+  else
+    window_status_format=${window_default_status_format}
+    window_status_current_format=${window_default_status_current_format}
+  fi
 
   set status-left ""
 
