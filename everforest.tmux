@@ -74,7 +74,7 @@ main() {
   # These variables are the defaults so that the setw and set calls are easier to parse.
   readonly show_directory="#[fg=$thm_orange,bg=$thm_bg0,bold]   #{b:pane_current_path} "
   readonly show_window="#[fg=$thm_yellow,bg=$thm_bg0,bold]   #W "
-  readonly show_time="#[fg=$thm_aqua,bg=$thm_bg0,bold]   %H:%M Right Here:${sync_enabled}"
+  readonly show_time="#[fg=$thm_aqua,bg=$thm_bg0,bold]   %H:%M "
   readonly window_default_status_format="#[fg=$thm_red,bg=$thm_bg0,bold] #W #I  "
   readonly window_default_status_current_format="#[fg=$thm_blue,bg=$thm_bg0,bold] #W #I  "
   readonly window_sync_status_format="#[fg=$thm_bg0,bg=$thm_red,bold] #W #I#[fg=$thm_red,bg=$thm_bg0,bold] "
